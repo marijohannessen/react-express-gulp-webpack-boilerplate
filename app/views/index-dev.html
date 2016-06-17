@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React + Express + Gulp + Webpack Boilerplate</title>
+  <style>
+    <%= criticalCSS %>
+  </style>
+  <noscript id="deffered-styles">
+    <link rel="stylesheet" href="/css/main.css">
+  </noscript>
+</head>
+<body>
+  <main id="app"></main>
+
+  <script>
+    // Optimize CSS Delivery:
+    // https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
+    var loadDeferredStyles = function () {
+      var addStylesNode = document.getElementById('deferred-styles');
+      var replacement = document.createElement('div');
+      replacement.innerHTML = addStylesNode.textContent;
+      document.body.appendChild(replacement);
+      addStylesNode.parentElement.removeChild(addStylesNode);
+    };
+
+    var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+    else window.addEventListener('load', loadDeferredStyles);
+  </script>
+  <script async src="/js/bundle.js"></script>
+</body>
+</html>

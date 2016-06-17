@@ -1,2 +1,3 @@
-# react-express-gulp-webpack-boilerplate
-Boilerplate for React + Express + Gulp + Webpack application
+# React + Express + Gulp + Webpack Boilerplate
+
+A boilerplate for creating an application with React, Express, Gulp and Webpack.
