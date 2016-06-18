@@ -4,6 +4,3 @@ npm-debug.log
 
 # System
 .DS_Store
-
-# Production
-app/dist

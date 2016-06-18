@@ -14,5 +14,5 @@ gulp.task('html', () => {
       dirname: '',
       basename: 'index'
     }))
-    .pipe(gulp.dest('app/views'))
+    .pipe(gulp.dest('app/dist'))
 });
