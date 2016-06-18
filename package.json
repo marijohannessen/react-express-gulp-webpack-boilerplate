@@ -2,12 +2,11 @@
   "name": "React-Express-Gulp-Webpack-Boilerplate",
   "version": "1.0.0",
   "description": "Boilerplate for creating React + Express + Gulp + Webpack application",
-  "main": "app/bin/www",
   "scripts": {
     "clean": "node tools/clean",
     "build": "node tools/build",
     "start": "node tools/start",
-    "dev": "gulp build && node tools/start",
+    "dev": "gulp",
     "deploy": "node tools/deploy.gh --release"
   },
   "repository": {

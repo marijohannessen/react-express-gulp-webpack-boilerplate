@@ -17,7 +17,7 @@ const remote = {
 module.exports = task('deploy', () => new Promise((resolve, reject) => {
   // Initialize a new Git repository inside the `/build` folder
   // if it doesn't exist yet
-  let p = GitRepo.open('build', { init: true });
+  let p = GitRepo.open('app/dist', { init: true });
   p = p.then(repo => {
     p = p.then(() => repo.setRemote(remote.name, remote.url));
     p = p.then(() => repo.hasRef(remote.url, remote.branch).then(exists => {
@@ -31,7 +31,7 @@ module.exports = task('deploy', () => new Promise((resolve, reject) => {
     // Build the project in RELEASE mode which
     // generates optimized and minimized bundles
     process.argv.push('release');
-    p = p.then(() => require('./build').default);
+    // p = p.then(() => require('./build').default);
 
     // Push the contents of the build folder to the remote server via Git
     p = p.then(() => repo.add('--all .'));
