@@ -10,6 +10,8 @@ var createBrowserHistory = require('history/lib/createBrowserHistory');
 
 var Rebase = require('re-base');
 
+import 'babel-polyfill';
+
 // <App />
 var App = React.createClass({
   render : function() {
