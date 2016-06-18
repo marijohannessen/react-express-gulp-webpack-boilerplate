@@ -5,7 +5,7 @@ const requireDir = require('require-dir')('./tasks');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
-gulp.task('build', ['styles', 'scripts', 'html']);
+gulp.task('build', ['clean', 'styles', 'scripts', 'html']);
 
 gulp.task('watch', () => {
   gulp.watch('app/scripts/*.js', ['scripts', reload]);
