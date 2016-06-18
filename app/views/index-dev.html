@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>React + Express + Gulp + Webpack Boilerplate</title>
   <style>
-    <%= criticalCSS %>
+    body {
+      background-color: lightgray;
+    }
   </style>
   <noscript id="deffered-styles">
     <link rel="stylesheet" href="/css/main.css">
@@ -18,7 +20,7 @@
     // Optimize CSS Delivery:
     // https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery
     var loadDeferredStyles = function () {
-      var addStylesNode = document.getElementById('deferred-styles');
+      var addStylesNode = document.getElementById('deffered-styles');
       var replacement = document.createElement('div');
       replacement.innerHTML = addStylesNode.textContent;
       document.body.appendChild(replacement);
