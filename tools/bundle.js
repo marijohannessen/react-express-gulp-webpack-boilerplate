@@ -2,7 +2,7 @@
 
 const webpack = require('webpack');
 const task = require('./task');
-const config = require('./webpack-config');
+const config = require('./webpack.config');
 
 module.exports = task('bundle', new Promise((resolve, reject) => {
   const bundler = webpack(config);

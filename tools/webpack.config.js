@@ -12,7 +12,6 @@ const path = require('path');
 const webpack = require('webpack');
 const extend = require('extend');
 const pkg = require('../package.json');
-require('babel-polyfill');
 
 const isDebug = !(process.argv.includes('--release') || process.argv.includes('-r'));
 const isVerbose = process.argv.includes('--verbose') || process.argv.includes('-v');
