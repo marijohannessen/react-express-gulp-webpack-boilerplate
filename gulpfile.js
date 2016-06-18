@@ -12,11 +12,3 @@ gulp.task('watch', () => {
   gulp.watch('app/styles/**/*.scss', ['styles']);
   gulp.watch('app/views/*.html', [reload]);
 });
-
-gulp.task('default', ['watch', 'nodemon'], () => {
-  browserSync.init({
-    proxy: 'http://localhost:7777',
-    open: false,
-    logPrefix: 'marijohannessen'
-  });
-})

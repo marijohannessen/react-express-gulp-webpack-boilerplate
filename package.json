@@ -4,12 +4,10 @@
   "description": "Boilerplate for creating React + Express + Gulp + Webpack application",
   "main": "app/bin/www",
   "scripts": {
-    "clean": "rimraf app/dist",
-    "build": "node tools/build --release",
+    "clean": "node tools/clean",
+    "build": "node tools/build",
     "start": "node tools/start",
-    "postinstall": "npm run build:prod",
-    "dev": "gulp",
-    "test": "mocha tests",
+    "dev": "gulp build && node tools/start",
     "deploy": "node tools/deploy.gh --release"
   },
   "repository": {
