@@ -1,5 +1,10 @@
+// Critical CSS:  Will not cause browser reload
+
 @import 'reset';
 
 body {
-  background-color: lightgray;
+  width: 100%;
+  height: 100%;
+  font-family: 'Futura', sans-serif;
+  background-color: #F5F0F6;
 }

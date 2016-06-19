@@ -16,7 +16,7 @@ app.set('views', 'app/views');
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.get('/', function(req, res) {
-  const criticalCSS = fs.readFileSync(path.join(__dirname, 'dist/css/critical.css'), 'utf8');
+  const criticalCSS = fs.readFileSync(path.join(__dirname, '/dist/css/critical.css'), 'utf8');
   res.render('index', { criticalCSS });
 });
 

@@ -7,7 +7,7 @@ gulp.task('nodemon', ['build'], () => {
 
   var stream = nodemon({
     script: './app/bin/www',
-    watch: './app/'
+    watch: './app/scripts/'
   })
   .on('start', function() {
     if (!started) {

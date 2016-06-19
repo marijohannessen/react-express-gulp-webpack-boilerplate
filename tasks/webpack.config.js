@@ -25,15 +25,8 @@ const config = {
   // The base directory
   context: path.resolve(__dirname, '../'),
 
-  // The entry point for the bundle
-  // entry: ['./app/scripts/main.js'],
-
   // Options affecting the output of the compilation
   output: {
-    // path: path.resolve(__dirname, '../build'),
-    // publicPath: '/',
-    // file: 'build/[name].js',
-    // sourcePrefix: '  ',
     filename: 'bundle.js'
   },
 
@@ -61,9 +54,10 @@ const config = {
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': isDebug ? '"development"' : '"production"',
+      'process.env.NODE_ENV': '"production"',
       __DEV__: isDebug,
     }),
+    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: isVerbose } })
   ],
 
   // Options affecting the normal modules
@@ -73,51 +67,21 @@ const config = {
         test: /\.jsx?$/,
         include: [
           path.resolve(__dirname, '../app/scripts'),
-          // path.resolve(__dirname, '../core'),
-          // path.resolve(__dirname, '../routes'),
         ],
         loader: 'babel-loader',
         query: extend({}, pkg.babel, { babelrc: false }),
       },
-      // {
-      //   test: /\.css/,
-      //   loaders: [
-      //     'style-loader',
-      //     `css-loader?${JSON.stringify({
-      //       sourceMap: isDebug,
-      //       // CSS Modules https://github.com/css-modules/css-modules
-      //       modules: true,
-      //       localIdentName: isDebug ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
-      //       // CSS Nano http://cssnano.co/options/
-      //       minimize: !isDebug,
-      //     })}`,
-      //     'postcss-loader',
-      //   ],
-      // },
       {
-        test: /\.json$/,
-        loader: 'json-loader',
-      },
-      // {
-      //   test: /\.md$/,
-      //   loader: path.resolve(__dirname, './webpack.markdown-loader.js'),
-      // },
-      {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-        loader: 'url-loader?limit=10000',
-      },
-      {
-        test: /\.(eot|ttf|wav|mp3)$/,
-        loader: 'file-loader',
-      },
-    ],
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      }
+    ]
   }
 };
 
 // Optimize the bundle in release (production) mode
 if (!isDebug) {
   config.plugins.push(new webpack.optimize.DedupePlugin());
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: isVerbose } }));
   config.plugins.push(new webpack.optimize.AggressiveMergingPlugin());
 }
 

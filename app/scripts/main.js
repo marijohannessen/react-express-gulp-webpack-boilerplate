@@ -1,14 +1,21 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactRouter = require('react-router');
+'use strict';
 
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var Navigation = ReactRouter.Navigation;
-var History = ReactRouter.History;
-var createBrowserHistory = require('history/lib/createBrowserHistory');
+require('../scss/critical.scss');
 
-var Rebase = require('re-base');
+import Header from './components/header';
+import Content from './components/content';
+
+const React = require('react');
+const ReactDOM = require('react-dom');
+const ReactRouter = require('react-router');
+
+const Router = ReactRouter.Router;
+const Route = ReactRouter.Route;
+const Navigation = ReactRouter.Navigation;
+const History = ReactRouter.History;
+const createBrowserHistory = require('history/lib/createBrowserHistory');
+
+const Rebase = require('re-base');
 
 import 'babel-polyfill';
 
@@ -16,8 +23,9 @@ import 'babel-polyfill';
 var App = React.createClass({
   render : function() {
     return (
-      <div class="container">
-        <h1>React + Express + Gulp + Webpack Boilerplate</h1>
+      <div>
+        <Header />
+        <Content />
       </div>
     )
   }

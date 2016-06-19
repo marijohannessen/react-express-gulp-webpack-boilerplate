@@ -12,7 +12,7 @@ const remote = {
 };
 
 /**
- * Deploy the contents of the `/build` folder to GitHub Pages.
+ * Deploy the contents of the `app/dist` folder to GitHub Pages.
  */
 module.exports = task('deploy', () => new Promise((resolve, reject) => {
   // Initialize a new Git repository inside the `/build` folder
@@ -31,9 +31,8 @@ module.exports = task('deploy', () => new Promise((resolve, reject) => {
     // Build the project in RELEASE mode which
     // generates optimized and minimized bundles
     process.argv.push('release');
-    // p = p.then(() => require('./build').default);
 
-    // Push the contents of the build folder to the remote server via Git
+    // Push the contents of the dist folder to the remote server via Git
     p = p.then(() => repo.add('--all .'));
     p = p.then(() => repo.commit(`Update ${new Date().toISOString()}`));
     p = p.then(() => repo.push(remote.name, `master:${remote.branch}`));
