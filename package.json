@@ -1,7 +1,7 @@
 {
-  "name": "React-Express-Gulp-Webpack-Boilerplate",
+  "name": "watch-it",
   "version": "1.0.0",
-  "description": "Boilerplate for creating React + Express + Gulp + Webpack application",
+  "description": "Application that lets you keep track of movies to watch and rate movies watched.",
   "scripts": {
     "clean": "node tools/clean",
     "build": "node tools/build",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marijohannessen/react-express-gulp-webpack-boilerplate"
+    "url": "git+https://github.com/marijohannessen/watch-it"
   },
   "keywords": [
     "react",
@@ -21,9 +21,9 @@
   "author": "Mari Johannessen",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/marijohannessen/react-express-gulp-webpack-boilerplate/issues"
+    "url": "https://github.com/marijohannessen/watch-it/issues"
   },
-  "homepage": "https://github.com/marijohannessen/react-express-gulp-webpack-boilerplate#readme",
+  "homepage": "https://github.com/marijohannessen/watch-it#readme",
   "dependencies": {
     "babel-core": "6.9.1",
     "babel-loader": "6.2.4",
